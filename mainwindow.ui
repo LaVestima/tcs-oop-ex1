@@ -34,54 +34,12 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>180</y>
-      <width>381</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0">
-      <widget class="QLineEdit" name="lineEdit_2"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="deleteRecordLineEdit">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLineEdit" name="lineEdit_3"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLineEdit" name="appendRecordLineEdit"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="deleteAllButton">
-       <property name="text">
-        <string>Delete all</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="deleteRecordButton">
-       <property name="text">
-        <string>Delete the record</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>460</y>
-      <width>281</width>
+      <x>170</x>
+      <y>30</y>
+      <width>161</width>
       <height>22</height>
      </rect>
     </property>
@@ -100,7 +58,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>100</y>
       <width>461</width>
       <height>71</height>
      </rect>
@@ -140,6 +98,38 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>230</y>
+      <width>301</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="deleteRecordButton">
+       <property name="text">
+        <string>Delete the record</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="deleteAllButton">
+       <property name="text">
+        <string>Delete all</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>listWidget</zorder>
+   <zorder>idListWidget</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>gridLayoutWidget</zorder>
+   <zorder>horizontalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -156,7 +146,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

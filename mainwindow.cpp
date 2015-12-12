@@ -11,6 +11,9 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::on_addRecordButton_clicked() {
+    struct listNode *proceduralList = createList();
+    ui->listMainLineEdit->setText(QString::number(getListLength(*proceduralList))); // To be removed
+
     if(ui->listMainLineEdit->text() != "") {
         ui->listWidget->addItem(ui->listMainLineEdit->text());
 
@@ -33,7 +36,7 @@ void MainWindow::on_appendRecordButton_clicked() {
 }
 
 void MainWindow::on_deleteRecordButton_clicked() {
-    ui->deleteRecordLineEdit->setText(QString::number(ui->listWidget->currentRow()));
+//    ui->deleteRecordLineEdit->setText(QString::number(ui->listWidget->currentRow()));
     int selectedRowId = ui->listWidget->currentRow();
     delete ui->listWidget->takeItem(selectedRowId);
     delete ui->idListWidget->takeItem(selectedRowId);
@@ -41,9 +44,9 @@ void MainWindow::on_deleteRecordButton_clicked() {
 
 
 void MainWindow::on_deleteAllButton_clicked() {
-    int listWidgetRecordNumber = ui->listWidget->count();
-    for (int i = 0; i < listWidgetRecordNumber; i++) {
-        delete ui->listWidget->takeItem(i);
+    int i = 0;
+    while (ui->listWidget->item(i)) {
+        delete(ui->listWidget->takeItem(i));
         delete ui->idListWidget->takeItem(i);
     }
 }

@@ -2,22 +2,24 @@
 #include "listfunctions.h"
 #include "ui_mainwindow.h"
 
-//QListWidget createFunction() {
-//    QListWidget *listWidget = new QListWidget();
-//    return listWidget;
-//}
+listNode* createList() {
+    struct listNode *listNodeHead = new listNode;
 
-//int addRecord(Ui::MainWindow *ui) {
-//    listWidget = createFunction();
-//    QString someString = 'sdfa';
-//    listWidget->addItem((QString) 'jiis');
-//    ui->list
-//    ui->listDisplayBox->setText((QString)listWidget->count());
+    listNodeHead->listNodeData = 5;
 
-//    ui->listDisplayBox->setText(ui->addRecordLineEdit->text());
-//    return 0;
-//}
+    return listNodeHead;
+}
+
+int getListLength(struct listNode listNodeHead) {
+    struct listNode current = listNodeHead;
+    int count = 0;
+//    while (current->listNodeNext) {
+//        count++;
+//        current = current->listNodeNext;
+//    }
+    return count;
+}
 
 int addRecord() {
-
+    return 0;
 }
