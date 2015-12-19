@@ -34,14 +34,23 @@
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="listSelectComboBox">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>30</y>
+      <x>280</x>
+      <y>40</y>
       <width>161</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
     </property>
     <item>
      <property name="text">
@@ -101,9 +110,9 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>10</x>
       <y>230</y>
-      <width>301</width>
+      <width>461</width>
       <height>80</height>
      </rect>
     </property>
@@ -122,14 +131,54 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="displayListButton">
+       <property name="text">
+        <string>Display list</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
-   <zorder>listWidget</zorder>
-   <zorder>idListWidget</zorder>
-   <zorder>comboBox</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>gridLayoutWidget</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
+   <widget class="QPushButton" name="newListButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Create new list</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mainLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>330</y>
+      <width>221</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>List: </string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -146,7 +195,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

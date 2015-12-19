@@ -10,11 +10,15 @@ struct listNode {
     struct listNode* listNodeNext;
 };
 
+QString displayList(struct listNode *);
+
 listNode* createList();
 
-int getListLength(struct listNode);
+int getListLength(listNode *);
 
-int addRecord();
+void addRecord(struct listNode **, QString);
+
+void deleteAllRecords(struct listNode **);
 
 #endif // LISTFUNCTIONS
 
