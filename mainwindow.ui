@@ -17,20 +17,20 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>10</y>
-      <width>256</width>
-      <height>491</height>
+      <x>210</x>
+      <y>370</y>
+      <width>271</width>
+      <height>121</height>
      </rect>
     </property>
    </widget>
    <widget class="QListWidget" name="idListWidget">
     <property name="geometry">
      <rect>
-      <x>481</x>
-      <y>10</y>
+      <x>180</x>
+      <y>370</y>
       <width>30</width>
-      <height>491</height>
+      <height>121</height>
      </rect>
     </property>
    </widget>
@@ -40,8 +40,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>40</y>
+      <x>300</x>
+      <y>10</y>
       <width>161</width>
       <height>22</height>
      </rect>
@@ -67,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
+      <y>40</y>
       <width>461</width>
       <height>71</height>
      </rect>
@@ -110,28 +110,21 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>230</y>
-      <width>461</width>
-      <height>80</height>
+      <x>80</x>
+      <y>120</y>
+      <width>301</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QPushButton" name="deleteRecordButton">
-       <property name="text">
-        <string>Delete the record</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
       <widget class="QPushButton" name="deleteAllButton">
        <property name="text">
         <string>Delete all</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
+     <item row="0" column="1">
       <widget class="QPushButton" name="displayListButton">
        <property name="text">
         <string>Display list</string>
@@ -143,8 +136,8 @@
    <widget class="QPushButton" name="newListButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
+      <x>10</x>
+      <y>10</y>
       <width>181</width>
       <height>21</height>
      </rect>
@@ -156,9 +149,9 @@
    <widget class="QLabel" name="mainLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>330</y>
-      <width>201</width>
+      <x>181</x>
+      <y>300</y>
+      <width>301</width>
       <height>51</height>
      </rect>
     </property>
@@ -166,17 +159,72 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLineEdit" name="responseLineEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>461</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>271</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="recordDeleteIdLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>199</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>330</y>
-      <width>221</width>
-      <height>151</height>
+      <x>20</x>
+      <y>200</y>
+      <width>71</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>List: </string>
+     <string>No. of record:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteRecordButton">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>200</y>
+      <width>149</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete the record</string>
     </property>
    </widget>
   </widget>

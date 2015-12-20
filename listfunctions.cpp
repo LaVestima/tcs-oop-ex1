@@ -10,12 +10,21 @@
  * @return
  */
 QString displayList(struct listNode *listNodeHead) {
+    int listId = 0;
     QString listString = "";
 
     struct listNode *currentNode = listNodeHead;
     while (currentNode != NULL) {
+        listId++;
+        listString += QString::number(listId);
+        listString += ". ";
+        listString += "<b>";
         listString += currentNode->listNodeData;
-        listString += "\n";
+        listString += "</b>";
+        listString += " - ";
+        listString += currentNode->listNodeTime.toString();
+        listString += "<br>";
+
         currentNode = currentNode->listNodeNext;
     }
     return listString;
@@ -29,8 +38,6 @@ QString displayList(struct listNode *listNodeHead) {
  */
 listNode* createList() {
     struct listNode *listNodeHead = new listNode;
-
-    listNodeHead->listNodeData = 5;
 
     return listNodeHead;
 }
@@ -57,20 +64,85 @@ int getListLength(struct listNode *listNodeHead) {
  *
  * @brief addRecord
  * @param listNodeHead
- * @param data
+ * @param inputData
  */
-void addRecord(struct listNode **listNodeHead, QString data) {
+void addRecord(struct listNode **listNodeHead, QString inputData) {
     struct listNode *newNode = new listNode;
+    QDateTime dateTime;
 
-    newNode->listNodeData = data;
+    newNode->listNodeData = inputData;
+    newNode->listNodeTime = dateTime.currentDateTime();
     newNode->listNodeNext = *listNodeHead;
     *listNodeHead = newNode;
 }
 
-void deleteRecord() {
+/**
+ * Appends the record to the existing list
+ *
+ * @brief appendRecord
+ * @param listNodeHead
+ * @param inputData
+ */
+void appendRecord(struct listNode **listNodeHead, QString inputData) {
+    struct listNode *currentNode = *listNodeHead;
+    struct listNode *newNode = new listNode;
+
+    newNode->listNodeData = inputData;
+    newNode->listNodeNext = NULL;
+
+    if (currentNode == NULL) {
+        *listNodeHead = newNode;
+    }
+    else {
+        while (currentNode->listNodeNext != NULL) {
+            currentNode = currentNode->listNodeNext;
+        }
+        currentNode->listNodeNext = newNode;
+    }
+}
+
+//void deleteRecord(struct listNode *listNodeHead, int recordId) {
+//    struct listNode *currentNode = listNodeHead;
+//    int currentNodeId = 0;
+
+//    while (currentNode) {
+//        currentNodeId++;
+
+//        if (currentNodeId == recordId) {
+//            delete currentNode;
+//        }
+//        currentNode = currentNode->listNodeNext;
+//    }
+
+//    listNodeHead = NULL;
+//}
+void deleteRecord(struct listNode **listNodeHead, int recordId) {
+    struct listNode *currentNode = *listNodeHead;
+    struct listNode *nextNode = NULL;
+    QString nodeData;
+    int currentNodeId = 0;
+
+    while (currentNode) {
+        currentNodeId++;
+        if (currentNodeId == recordId) {
+            nextNode = (*listNodeHead)->listNodeNext; //Revise from here!
+            nodeData = (*listNodeHead)->listNodeData;
+            delete *listNodeHead;
+            *listNodeHead = nextNode;
+            break;
+        }
+
+        currentNode = currentNode->listNodeNext;
+    }
 
 }
 
+/**
+ * Deletes all the records from the existing list
+ *
+ * @brief deleteAllRecords
+ * @param listNodeHead
+ */
 void deleteAllRecords(struct listNode **listNodeHead) {
     struct listNode *currentNode = *listNodeHead;
     struct listNode *nextNode;
