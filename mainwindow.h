@@ -31,6 +31,8 @@ private slots:
 
     void on_displayListButton_clicked();
 
+    void on_findRecordButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

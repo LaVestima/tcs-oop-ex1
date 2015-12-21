@@ -36,7 +36,7 @@ void MainWindow::on_newListButton_clicked() {
     ui->findRecordButton->setEnabled(true);
     ui->deleteAllButton->setEnabled(true);
     ui->displayListButton->setEnabled(true);
-    ui->recordDeleteIdLineEdit->setEnabled(true);
+    ui->recordIdLineEdit->setEnabled(true);
     ui->deleteRecordButton->setEnabled(true);
 
     ui->mainLabel->setText("List created");
@@ -83,6 +83,14 @@ void MainWindow::on_appendRecordButton_clicked() {
 }
 
 /**
+ * @brief MainWindow::on_findRecordButton_clicked
+ */
+void MainWindow::on_findRecordButton_clicked() {
+    QString searchPhrase = ui->listMainLineEdit->text();
+    ui->recordIdLineEdit->setText(QString::number(findRecord(proceduralList, searchPhrase)));
+}
+
+/**
  * @brief MainWindow::on_deleteRecordButton_clicked
  */
 void MainWindow::on_deleteRecordButton_clicked() {
@@ -90,7 +98,7 @@ void MainWindow::on_deleteRecordButton_clicked() {
     delete ui->listWidget->takeItem(selectedRowId);
     delete ui->idListWidget->takeItem(selectedRowId);
 
-    int recordId = ui->recordDeleteIdLineEdit->text().toInt();
+    int recordId = ui->recordIdLineEdit->text().toInt();
     deleteRecord(&proceduralList, recordId);
 
     ui->mainLabel->setText("Record deleted");
@@ -112,5 +120,3 @@ void MainWindow::on_deleteAllButton_clicked() {
     ui->mainLabel->setText("All items deleted");
     on_displayListButton_clicked();
 }
-
-

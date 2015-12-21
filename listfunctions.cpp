@@ -103,6 +103,20 @@ void appendRecord(struct listNode **listNodeHead, QString inputData) {
     }
 }
 
+int findRecord(struct listNode *listNodeHead, QString inputData) {
+    struct listNode *currentNode = listNodeHead;
+    int currentNodeId = 0;
+
+    while (currentNode) {
+        currentNodeId++;
+        if (currentNode->data == inputData) {
+            return currentNodeId;
+        }
+        currentNode = currentNode->next;
+    }
+    return 0;
+}
+
 /**
  * Deletes the record with the selected id
  *

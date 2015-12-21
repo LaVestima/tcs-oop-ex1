@@ -23,6 +23,8 @@ void appendRecord(struct listNode **, QString);
 
 void deleteRecord(struct listNode **, int);
 
+int findRecord(struct listNode *, QString);
+
 void deleteAllRecords(struct listNode **);
 
 #endif // LISTFUNCTIONS
