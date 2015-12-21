@@ -6,9 +6,9 @@
 #include <QDateTime>
 
 struct listNode {
-    QString listNodeData;
-    QDateTime listNodeTime;
-    struct listNode* listNodeNext;
+    QString data;
+    QDateTime time;
+    struct listNode* next;
 };
 
 QString displayList(struct listNode *);

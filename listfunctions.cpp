@@ -19,13 +19,13 @@ QString displayList(struct listNode *listNodeHead) {
         listString += QString::number(listId);
         listString += ". ";
         listString += "<b>";
-        listString += currentNode->listNodeData;
+        listString += currentNode->data;
         listString += "</b>";
         listString += " - ";
-        listString += currentNode->listNodeTime.toString();
+        listString += currentNode->time.toString();
         listString += "<br>";
 
-        currentNode = currentNode->listNodeNext;
+        currentNode = currentNode->next;
     }
     return listString;
 }
@@ -54,7 +54,7 @@ int getListLength(struct listNode *listNodeHead) {
     int count = 0;
     while (currentNode != NULL) {
         count++;
-        currentNode = currentNode->listNodeNext;
+        currentNode = currentNode->next;
     }
     return count;
 }
@@ -70,9 +70,9 @@ void addRecord(struct listNode **listNodeHead, QString inputData) {
     struct listNode *newNode = new listNode;
     QDateTime dateTime;
 
-    newNode->listNodeData = inputData;
-    newNode->listNodeTime = dateTime.currentDateTime();
-    newNode->listNodeNext = *listNodeHead;
+    newNode->data = inputData;
+    newNode->time = dateTime.currentDateTime();
+    newNode->next = *listNodeHead;
     *listNodeHead = newNode;
 }
 
@@ -86,18 +86,20 @@ void addRecord(struct listNode **listNodeHead, QString inputData) {
 void appendRecord(struct listNode **listNodeHead, QString inputData) {
     struct listNode *currentNode = *listNodeHead;
     struct listNode *newNode = new listNode;
+    QDateTime dateTime;
 
-    newNode->listNodeData = inputData;
-    newNode->listNodeNext = NULL;
+    newNode->data = inputData;
+    newNode->time = dateTime.currentDateTime();
+    newNode->next = NULL;
 
     if (currentNode == NULL) {
         *listNodeHead = newNode;
     }
     else {
-        while (currentNode->listNodeNext != NULL) {
-            currentNode = currentNode->listNodeNext;
+        while (currentNode->next != NULL) {
+            currentNode = currentNode->next;
         }
-        currentNode->listNodeNext = newNode;
+        currentNode->next = newNode;
     }
 }
 
@@ -115,8 +117,8 @@ void deleteRecord(struct listNode **listNodeHead, int recordId) {
     int currentNodeId = 0;
 
     if (recordId == 1) {
-        nextNode = (*listNodeHead)->listNodeNext;
-        nodeData = (*listNodeHead)->listNodeData;
+        nextNode = (*listNodeHead)->next;
+        nodeData = (*listNodeHead)->data;
         delete *listNodeHead;
         *listNodeHead = nextNode;
     }
@@ -125,14 +127,14 @@ void deleteRecord(struct listNode **listNodeHead, int recordId) {
             currentNodeId++;
 
             if (currentNodeId == recordId - 1) {
-                nextNode = currentNode->listNodeNext->listNodeNext; //Revise from here!
-                nodeData = currentNode->listNodeNext->listNodeData;
-                delete currentNode->listNodeNext;
-                currentNode->listNodeNext = nextNode;
+                nextNode = currentNode->next->next;
+                nodeData = currentNode->next->data;
+                delete currentNode->next;
+                currentNode->next = nextNode;
                 break;
             }
 
-            currentNode = currentNode->listNodeNext;
+            currentNode = currentNode->next;
         }
     }
 }
@@ -148,7 +150,7 @@ void deleteAllRecords(struct listNode **listNodeHead) {
     struct listNode *nextNode;
 
     while(currentNode) {
-        nextNode = currentNode->listNodeNext;
+        nextNode = currentNode->next;
         delete currentNode;
         currentNode = nextNode;
     }
