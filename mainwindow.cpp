@@ -30,6 +30,15 @@ void MainWindow::on_displayListButton_clicked() {
 void MainWindow::on_newListButton_clicked() {
     struct listNode *proceduralList = createList();
     ui->listSelectComboBox->setEnabled(true);
+    ui->listMainLineEdit->setEnabled(true);
+    ui->addRecordButton->setEnabled(true);
+    ui->appendRecordButton->setEnabled(true);
+    ui->findRecordButton->setEnabled(true);
+    ui->deleteAllButton->setEnabled(true);
+    ui->displayListButton->setEnabled(true);
+    ui->recordDeleteIdLineEdit->setEnabled(true);
+    ui->deleteRecordButton->setEnabled(true);
+
     ui->mainLabel->setText("List created");
     on_displayListButton_clicked();
 }
@@ -85,6 +94,7 @@ void MainWindow::on_deleteRecordButton_clicked() {
     deleteRecord(&proceduralList, recordId);
 
     ui->mainLabel->setText("Record deleted");
+    on_displayListButton_clicked();
 }
 
 /**
@@ -100,6 +110,7 @@ void MainWindow::on_deleteAllButton_clicked() {
     deleteAllRecords(&proceduralList);
 
     ui->mainLabel->setText("All items deleted");
+    on_displayListButton_clicked();
 }
 
 

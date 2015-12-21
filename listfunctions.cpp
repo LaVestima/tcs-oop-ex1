@@ -101,40 +101,40 @@ void appendRecord(struct listNode **listNodeHead, QString inputData) {
     }
 }
 
-//void deleteRecord(struct listNode *listNodeHead, int recordId) {
-//    struct listNode *currentNode = listNodeHead;
-//    int currentNodeId = 0;
-
-//    while (currentNode) {
-//        currentNodeId++;
-
-//        if (currentNodeId == recordId) {
-//            delete currentNode;
-//        }
-//        currentNode = currentNode->listNodeNext;
-//    }
-
-//    listNodeHead = NULL;
-//}
+/**
+ * Deletes the record with the selected id
+ *
+ * @brief deleteRecord
+ * @param listNodeHead
+ * @param recordId
+ */
 void deleteRecord(struct listNode **listNodeHead, int recordId) {
     struct listNode *currentNode = *listNodeHead;
     struct listNode *nextNode = NULL;
     QString nodeData;
     int currentNodeId = 0;
 
-    while (currentNode) {
-        currentNodeId++;
-        if (currentNodeId == recordId) {
-            nextNode = (*listNodeHead)->listNodeNext; //Revise from here!
-            nodeData = (*listNodeHead)->listNodeData;
-            delete *listNodeHead;
-            *listNodeHead = nextNode;
-            break;
-        }
-
-        currentNode = currentNode->listNodeNext;
+    if (recordId == 1) {
+        nextNode = (*listNodeHead)->listNodeNext;
+        nodeData = (*listNodeHead)->listNodeData;
+        delete *listNodeHead;
+        *listNodeHead = nextNode;
     }
+    else {
+        while (currentNode) {
+            currentNodeId++;
 
+            if (currentNodeId == recordId - 1) {
+                nextNode = currentNode->listNodeNext->listNodeNext; //Revise from here!
+                nodeData = currentNode->listNodeNext->listNodeData;
+                delete currentNode->listNodeNext;
+                currentNode->listNodeNext = nextNode;
+                break;
+            }
+
+            currentNode = currentNode->listNodeNext;
+        }
+    }
 }
 
 /**
